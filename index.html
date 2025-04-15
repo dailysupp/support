@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>DAILYMOTION Support</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 40px 0;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #2d2d2d;
+    }
+
+    .container {
+      max-width: 850px;
+      background-color: #ffffff;
+      padding: 40px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      border: 1px solid #e0e0e0;
+      width: 90%;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 36px;
+      font-weight: bold;
+      color: #003366;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 26px;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background-color: #000;
+      margin-bottom: 25px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .code-box-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .code-box-container input {
+      padding: 10px;
+      font-size: 16px;
+      width: 250px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .code-box-container button {
+      padding: 10px 20px;
+      background-color: #0056b3;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .code-box-container button:hover {
+      background-color: #003e80;
+      transform: scale(1.05);
+    }
+
+    .help-section {
+      background-color: #f9fbfc;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    .help-section h3 {
+      font-size: 22px;
+      color: #003366;
+      margin-bottom: 15px;
+    }
+
+    .help-item {
+      padding: 15px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      background-color: #ffffff;
+      transition: background-color 0.3s ease;
+    }
+
+    .help-item:hover {
+      background-color: #f0f2f5;
+    }
+
+    .help-item h4 {
+      font-size: 18px;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .help-item p,
+    .help-item li {
+      font-size: 15px;
+      color: #555;
+    }
+
+    .alert {
+      background-color: #fff5f5;
+      color: #b30000;
+      padding: 15px;
+      border: 1px solid #ffcccc;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    .contact-button {
+      padding: 15px 30px;
+      background-color: #0077cc;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 30px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .contact-button:hover {
+      background-color: #005fa3;
+      transform: scale(1.05);
+    }
+
+    .faq-link {
+      display: block;
+      margin-top: 20px;
+      font-size: 16px;
+      color: #0056b3;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .faq-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <script>
+    function validateCode() {
+      var codeInput = document.getElementById('codeInput').value.trim();
+      var videoFrame = document.getElementById('videoFrame');
+
+      const videoCodes = {
+        'VIDMartiniBianco': 'https://drive.google.com/file/d/1X88mp26nlSJlvWoQQ5ubEaUo0gTdbBpJ/preview',
+'VIDSylvainGautier': 'https://drive.google.com/file/d/1zFwrZd4z-8wdPu9jpbo7_5_Uwx10c3Zy/preview',
+'VIDPiotr': 'https://drive.google.com/file/d/1mBgyJtnZ3arrqMwY2uly_xZt-pfEMPvz/preview',
+'VIDNicolasFosserat': 'https://drive.google.com/file/d/10VE8GFwxmvLUeVaf90UrStLpYiyIcHI0/preview',
+'VIDArjanAgema': 'https://drive.google.com/file/d/1FhuFLk8eG4NgfKtPX7CIZbSf9xJAd4Wr/preview',
+'VIDPascalLaparre': 'https://drive.google.com/file/d/1jiApf0-H9Qo6ETWMtgb5KNkxU9CCSXOf/preview',
+'VIDKratosFabien': 'https://drive.google.com/file/d/1rV4xRcBys22gJ8W3aETprd1cRmOSj0J1/preview',
+'VIDChrisHansberger': 'https://drive.google.com/file/d/16ZCYMq3E_fv7uqxGJxcycgKhrt61jZ1I/preview',
+'VIDJeanYves': 'https://drive.google.com/file/d/1RxCATOOEEaUxsNGbqf4asz5MI3yxYNpR/preview',
+'VIDChrisLeHavrais': 'https://drive.google.com/file/d/1reqB1hxF0MCrQosRKX3eSDEvKd1GSI5q/preview',
+'VIDNicholasFeltsen': 'https://drive.google.com/file/d/1mexAtawFCrTSLTttvwmmPCMdeyQAPsGd/preview',
+'VIDPiotrekPiotrSalamaga': 'https://drive.google.com/file/d/1wA9h5xX2-mfdSpw_z9fzyZTNbFTZbCQ4/preview',
+'VIDPanTomasTim': 'https://drive.google.com/file/d/1mFNsABzSYCwKBzHf5UFN4sEfjLsRSKLs/preview',
+'VIDTonnelierThomas': 'https://drive.google.com/file/d/1pxGFu6SsH6MPFwUYj4HuHWhyOMIf0i7K/preview',
+'VIDRichardB': 'https://drive.google.com/file/d/1tGiUZ9bb1wxczBa84zkJEX3NfcxYYdE-/preview',
+'VIDGoranSteffe': 'https://drive.google.com/file/d/1QdJdQI13FFkmCjunWjdCBzZN8EqL6oto/preview',
+'VIDAntonioCharmant': 'https://drive.google.com/file/d/1Y_ZcVINZXcbvJRz3KBHPU2RF98MQkzmN/preview',
+'VIDRachNaj': 'https://drive.google.com/file/d/1kjyRhf5Efge6URVECzvTqZfIg0AeBa9n/preview',
+'VIDMark': 'https://drive.google.com/file/d/19Z63ckunFradr39ZPevxQ_ITpZh2EuVA/preview',
+'VIDMatheoMahe': 'https://drive.google.com/file/d/1G42HCpDADJF9ec_fnxAOyYXJ6T6bhxf0/preview',
+'VIDLucetAsmund': 'https://drive.google.com/file/d/1r8_NxWV5njRzPg1eRkMtpqL-GQM23Emv/preview',
+'VIDBenoitDeserts': 'https://drive.google.com/file/d/1fZRhgJKA9UCH_vwUJc6Tszr0uC7pJrZt/preview',
+'VIDRamonEngelen': 'https://drive.google.com/file/d/1_yPjIzps0GDOijVuJGcv6mrcJSGvsbVI/preview',
+'VIDDavid': 'https://drive.google.com/file/d/1VoMqB36bt9C97rbGTYxTDYfXkKaxu3qj/preview'
+
+      };
+
+      if (videoCodes[codeInput]) {
+        videoFrame.src = videoCodes[codeInput];
+        alert('La vidéo a été affichée avec succès.');
+      } else {
+        alert('Code invalide. Veuillez vérifier et réessayer.');
+      }
+    }
+
+    function contactSupport() {
+      window.location.href = "mailto:support@dailymotion.com?subject=Demande de suppression de vidéo&body=Bonjour,%0D%0A%0D%0AJe souhaite supprimer une vidéo présente sur votre plateforme. Voici les informations :%0D%0A%0D%0ANom complet :%0D%0AAdresse :%0D%0ADétails sur la vidéo :%0D%0A%0D%0AMerci de votre aide.";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">DAILYMOTION</div>
+    <h2>Centre d'assistance officiel</h2>
+    <p><strong>Notre équipe est mobilisée pour vous aider à gérer ou supprimer tout contenu publié sans votre autorisation.</strong></p>
+
+    <div class="video-container">
+      <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="code-box-container">
+      <input type="text" id="codeInput" placeholder="Entrez votre code d’accès à la vidéo" />
+      <button onclick="validateCode()">Afficher la vidéo</button>
+    </div>
+
+    <div class="help-section">
+      <h3>Assistance et informations importantes</h3>
+
+      <div class="help-item">
+        <h4>Pourquoi votre vidéo est encore visible</h4>
+        <p>Dans certains cas, une vidéo signalée est automatiquement classée comme <strong>contenu suspect impliquant un mineur</strong>, ce qui constitue un délit grave.</p>
+        <div class="alert">
+          Pour des raisons légales, ces vidéos doivent être conservées temporairement et signalées aux autorités avant suppression.  
+        </div>
+        <p>Nous vous demandons de nous fournir des informations précises pour confirmer votre identité et permettre le traitement accéléré du signalement.</p>
+      </div>
+
+      <div class="help-item">
+        <h4>Contenu inapproprié ou illégal</h4>
+        <p>La publication de contenu sexuel explicite impliquant des mineurs est un crime sévèrement puni par la loi. Ce contenu est systématiquement transmis aux autorités compétentes.</p>
+        <p>Nous ne tolérons aucune exception. Si vous pensez qu'une erreur a été faite, contactez immédiatement le support avec toutes les informations nécessaires.</p>
+      </div>
+
+      <div class="help-item">
+        <h4>Comment supprimer votre vidéo</h4>
+        <ul>
+          <li>Connectez-vous à votre compte Dailymotion</li>
+          <li>Rendez-vous dans la section <strong>Mes vidéos</strong></li>
+          <li>Cliquez sur <strong>Supprimer</strong> à côté de la vidéo concernée</li>
+        </ul>
+      </div>
+
+      <div class="help-item">
+        <h4>Contacter notre support</h4>
+        <p>Si vous êtes victime de chantage ou de diffusion non consentie :</p>
+        <ul>
+          <li>Envoyez votre nom, prénom et adresse complète</li>
+          <li>Expliquez clairement comment la vidéo est arrivée sur notre site</li>
+        </ul>
+        <p>Une enquête pourra être ouverte et votre demande sera priorisée.</p>
+      </div>
+    </div>
+
+    <a href="#faq" class="faq-link">Voir les questions fréquentes (FAQ)</a>
+    <button class="contact-button" onclick="contactSupport()">Contacter le support</button>
+  </div>
+</body>
+</html>
